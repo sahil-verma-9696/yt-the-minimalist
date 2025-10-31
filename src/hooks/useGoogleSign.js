@@ -7,8 +7,7 @@ export default function useGoogleSign() {
   // context
   const { setIsUserAuthenticated } = useAppStore();
   function signIn() {
-    // eslint-disable-next-line no-undef
-    google.accounts.oauth2
+    window.google.accounts.oauth2
       .initTokenClient({
         client_id: CLIENT_ID,
         callback: (data) => {

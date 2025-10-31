@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- For Google Authentication gives window.google.accounts.oauth2
+      .initTokenClient({}).requestAccessToken({})-->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- For Google APIs window.gapi.load() , window.gapi.client.request({}) -->
     <script src="https://apis.google.com/js/api.js"></script>
-    
+
     <title>The Minimalist</title>
   </head>
   <body>
