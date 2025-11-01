@@ -1,16 +1,15 @@
-import Main from "../../components/main/Main";
-import Sidebar from "../../components/sidebar/Sidebar";
+import VideoPreviewList from "../../components/video-preview-list/VideoPreviewList";
 import { useStyle } from "./styles";
 
-function Home() {
+function HomePage() {
   const styles = useStyle();
-  const { classes, styleObj } = styles;
+  const { classes } = styles;
+
   return (
     <div className={classes.homePage}>
-      <Sidebar />
-      <Main />
+      <VideoPreviewList />
     </div>
   );
 }
 
-export default Home;
+export default HomePage;

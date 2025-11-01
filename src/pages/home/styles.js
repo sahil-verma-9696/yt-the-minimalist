@@ -1,7 +1,7 @@
 export function useStyle() {
   const styles = {
     classes: {
-      homePage: ["flex"].join(" "),
+      homePage: [""].join(" "),
     },
     styleObj: {},
   };

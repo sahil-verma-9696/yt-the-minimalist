@@ -1,8 +1,12 @@
 import React from "react";
-import useAppStore from "./useAppStore";
 import storageKeys from "../constants/localstorage-keys";
 
-export default function useYTAPICall({ storageKey, path, params }) {
+export default function useYTAPICall({
+  storageKey,
+  path,
+  params,
+  isUserAuthenticated,
+}) {
   // handling invalid inputs
   if (!storageKey || !path) throw new Error("storageKey and path are required");
 
@@ -10,9 +14,6 @@ export default function useYTAPICall({ storageKey, path, params }) {
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
   const [response, setResponse] = React.useState(null);
-
-  // custom hooks
-  const { isUserAuthenticated } = useAppStore();
 
   React.useEffect(() => {
     setLoading(true);
@@ -22,19 +23,12 @@ export default function useYTAPICall({ storageKey, path, params }) {
       setLoading(false);
       setResponse(null);
       setError({ msg: "User not authenticated" });
+      console.log("User not authenticated");
       return;
     }
 
     // get stored data
     const storedData = localStorage.getItem(storageKey);
-
-    // check if data is available we are using etag
-    // if (storedData !== null) {
-    //   setResponse(JSON.parse(storedData));
-    //   setLoading(false);
-    //   setError(null);
-    //   return;
-    // }
 
     const etag = JSON.parse(localStorage.getItem(storageKey))?.etag || "";
 
@@ -82,6 +76,7 @@ export default function useYTAPICall({ storageKey, path, params }) {
                 setLoading(false);
                 setResponse(null);
                 setError({ msg: "Something went wrong." });
+                return;
             }
           })
           .catch((e) => {
@@ -103,7 +98,7 @@ export default function useYTAPICall({ storageKey, path, params }) {
       },
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isUserAuthenticated]);
+  }, [isUserAuthenticated,window.location.href]);
 
   return { loading, error, response };
 }

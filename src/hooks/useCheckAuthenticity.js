@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import storageKeys from "./../constants/localstorage-keys.js";
-import useAppStore from "./useAppStore.js";
 
-export default function useCheckAuthenticity() {
-  const { setIsUserAuthenticated } = useAppStore();
+export default function useCheckAuthenticity(
+  isUserAuthenticated,
+  setIsUserAuthenticated
+) {
+  // const { isUserAuthenticated, setIsUserAuthenticated } = useAppStore();
 
   const token = localStorage.getItem(storageKeys.ACCESS_TOKEN);
   const expiresIn = localStorage.getItem(storageKeys.EXPIRES_IN);
 
   const hasValidToken = !!token;
-//   const hasValidExpiresIn = !!expiresIn;
+  //   const hasValidExpiresIn = !!expiresIn;
 
   const isTokenExpired = Date.now() > Number(expiresIn); // 12 : 01  < 12 : 05
-//   debugger;
+  //   debugger;
   useEffect(() => {
     if (hasValidToken) {
       if (isTokenExpired) {
@@ -29,5 +31,5 @@ export default function useCheckAuthenticity() {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.href]);
+  }, [window.location.href, isUserAuthenticated]);
 }

@@ -4,6 +4,9 @@ import { createContext } from "react";
 const defaultValue = {
   isUserAuthenticated: false,
   setIsUserAuthenticated: () => {},
+  subscriptions: {},
+  subscriptionsError: null,
+  subscriptionsLoading: false,
 };
 
 // creating context

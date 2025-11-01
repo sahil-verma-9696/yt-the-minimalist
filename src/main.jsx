@@ -6,8 +6,6 @@ import AppStoreProvider from "./providers/AppStoreProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AppStoreProvider>
       <App />
-    </AppStoreProvider>
   </StrictMode>
 );

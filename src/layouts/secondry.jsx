@@ -2,16 +2,13 @@ import { Outlet } from "react-router";
 import Navbar from "../components/navbar/Navbar";
 import Sidebar from "../components/sidebar/Sidebar";
 
-function PrimaryLayout() {
+function SecondryLayout() {
   return (
     <>
       <Navbar />
-      <div className="flex">
-        <Sidebar />
-        <Outlet />
-      </div>
+      <Outlet />
     </>
   );
 }
 
-export default PrimaryLayout;
+export default SecondryLayout;
