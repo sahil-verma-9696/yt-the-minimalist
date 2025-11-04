@@ -131,6 +131,14 @@ turning endless scrolling into **intentional watching**.
 > 🧘 “Simplicity is the ultimate sophistication.”  
 > — Leonardo da Vinci
 
+# Diagrams
+
+## Planning & Architecture
+<img width="4349" height="3420" alt="diagram-export-04-11-2025-10_42_21" src="https://github.com/user-attachments/assets/aebd36ae-3151-42c5-8af7-1cdce916097f" />
+
+## useYTApiCall hook
+<img width="2642" height="3134" alt="diagram-export-04-11-2025-10_41_08" src="https://github.com/user-attachments/assets/0c1c30a1-c500-4663-a459-217a80810639" />
+
 ## Research & References
 
 - [client library](https://developers.google.com/api-client-library)
